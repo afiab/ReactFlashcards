@@ -10,12 +10,8 @@ function App() {
   const [index, setIndex] = useState(0);
   const [card, setCard] = useState(French[0]);
 
-  function prevCard() {
-    setIndex(prevIndex => prevIndex-1)
-  }
-
   function nextCard() {
-    setIndex(nextIndex => nextIndex+1)
+    setIndex(nextIndex => Math.floor(Math.random()*French.length))
   }
 
   return (
@@ -28,7 +24,6 @@ function App() {
       <Flashcard 
         {...French[index]}
       />
-      <Button onClick={prevCard} disabled = {index === 0 ? true:false}>&larr;</Button>
       <Button onClick={nextCard} disabled = {index === French.length - 1 ? true:false}>&rarr;</Button>
     </div>    
   )
